@@ -30,6 +30,9 @@ const SignUp = () => {
             email: data.email
           }
             axiosOpen.post('/users', userInfo)
+            .then(res=> {
+              
+            })
             reset();
             Swal.fire({
                 position: "center",
