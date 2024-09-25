@@ -28,13 +28,14 @@ const SignUp = () => {
             name: data.name,
             email: data.email,
           };
-          axiosOpen.post("/users", userInfo).then((res) => {
+          axiosOpen.post("/users", userInfo)
+          .then((res) => {
             if (res.data.insertedId) {
               reset();
               Swal.fire({
                 position: "center",
                 icon: "success",
-                title: "User profile updated successfully!",
+                title: "User created successfully!",
                 showConfirmButton: false,
                 timer: 1500,
               });
