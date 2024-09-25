@@ -25,7 +25,11 @@ const SignUp = () => {
         console.log(loggedUser)
         updateUserProfile(data.name, data.photoURL)
         .then(()=>{
-            
+          const userInfo = {
+            name: data.name,
+            email: data.email
+          }
+            axiosOpen.post('/users', )
             reset();
             Swal.fire({
                 position: "center",
