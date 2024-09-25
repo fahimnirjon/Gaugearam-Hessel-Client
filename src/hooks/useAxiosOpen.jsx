@@ -5,7 +5,7 @@ const axiosOpen = axios.create({
 })
 
 const useAxiosOpen = () => {
-    return axiosOpen
+    return axiosOpen;
 };
 
 export default useAxiosOpen;
