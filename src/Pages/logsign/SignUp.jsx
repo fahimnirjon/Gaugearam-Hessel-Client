@@ -31,7 +31,9 @@ const SignUp = () => {
           }
             axiosOpen.post('/users', userInfo)
             .then(res=> {
-              
+              if(res.data.insertedId){
+                
+              }
             })
             reset();
             Swal.fire({
