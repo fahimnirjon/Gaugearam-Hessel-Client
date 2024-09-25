@@ -8,6 +8,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import SocialTab from "../../Components/SocialTab";
 
 const Login = () => {
   useEffect(() => {
@@ -126,6 +127,7 @@ const Login = () => {
             <p className="text-center text-yellow-400 mb-5">
               New here?<Link className="ml-2 underline font-bold" to="/signup">Create an Account!</Link>
             </p>
+            <SocialTab></SocialTab>
           </div>
         </div>
       </div>
