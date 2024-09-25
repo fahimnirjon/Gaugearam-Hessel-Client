@@ -7,6 +7,7 @@ import Testimonial from './Testimonial';
 import Phone from './Phone';
 import About from './About';
 import { Helmet } from 'react-helmet-async';
+import Recommand from './Recommand';
 
 const Home = () => {
     return (
@@ -19,6 +20,7 @@ const Home = () => {
             <About></About>
             <PopularMenu></PopularMenu>
             <Phone></Phone>
+            <Recommand></Recommand>
             <FeaturedCard></FeaturedCard>
             <Testimonial></Testimonial>
         </div>

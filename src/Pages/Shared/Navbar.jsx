@@ -28,9 +28,7 @@ const Navbar = () => {
       <li className="uppercase">
         <Link to="/menu">our menu</Link>
       </li>
-      <li className="uppercase">
-        <Link to="/order">Your Order</Link>
-      </li>
+      <li className="uppercase"><Link>our shop</Link></li>
       <li>
         <Link to="/dashboard/cart">
           <button className="btn">
@@ -57,8 +55,8 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar fixed z-10 bg-opacity-20 text-white bg-black mx-auto container">
-        <div className="navbar-start">
+      <div className="flex justify-between fixed z-10 bg-opacity-50 text-white bg-black mx-auto container">
+        <div className="">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -85,12 +83,12 @@ const Navbar = () => {
           </div>
           <Link className="btn btn-ghost text-xl ">গাঁওগেরাম হেঁশেল</Link>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{navLinks}</ul>
+        <div className=" hidden lg:flex">
+          <ul className="menu menu-horizontal">{navLinks}</ul>
         </div>
-        <div className="navbar-end">
+        {/* <div className="navbar-end">
           <a className="btn">Button</a>
-        </div>
+        </div> */}
       </div>
     </div>
   );
