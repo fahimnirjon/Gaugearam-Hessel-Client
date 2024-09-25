@@ -7,6 +7,8 @@ import Login from "../Pages/logsign/Login";
 import SignUp from "../Pages/logsign/SignUp";
 import Dashboard from "../Layout/Dashboard";
 import Cart from "../Pages/dashboard/cart/Cart";
+import PrivateRoute from '../Routes/private/PrivateRoute'
+
 
 export const router = createBrowserRouter([
   {
