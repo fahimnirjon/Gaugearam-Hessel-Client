@@ -4,8 +4,10 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiosOpen from "../../hooks/useAxiosOpen";
 
 const SignUp = () => {
+  const axiosOpen = useAxiosOpen();
   const {
     register,
     handleSubmit,
@@ -23,7 +25,7 @@ const SignUp = () => {
         console.log(loggedUser)
         updateUserProfile(data.name, data.photoURL)
         .then(()=>{
-            console.log('user updated')
+            
             reset();
             Swal.fire({
                 position: "center",
