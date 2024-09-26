@@ -6,10 +6,12 @@ import { SiLinkedin } from 'react-icons/si';
 import { SocialIcon } from 'react-social-icons';
 import useAuth from '../hooks/useAuth';
 import useAxiosOpen from '../hooks/useAxiosOpen';
+import { useNavigate } from 'react-router-dom';
 
 const SocialTab = () => {
     const {googleSignIn} = useAuth();
     const axiosOpen = useAxiosOpen();
+    const navigate = useNavigate();
 
     const handleGoogle = () =>{
         googleSignIn()
@@ -22,6 +24,7 @@ const SocialTab = () => {
             axiosOpen.post('/users', userInfo)
             .then(res=>{
                 console.log(res.data)
+                navigate('/');
             })
         })
     }
