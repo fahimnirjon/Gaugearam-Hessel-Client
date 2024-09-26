@@ -6,6 +6,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import useAxiosOpen from "../../hooks/useAxiosOpen";
 import img from "../../assets/others/authentication1.png";
+import SocialTab from "../../Components/SocialTab";
 
 const SignUp = () => {
   const axiosOpen = useAxiosOpen();
@@ -163,6 +164,7 @@ const SignUp = () => {
                 Login Here
               </Link>{" "}
             </p>
+            <SocialTab></SocialTab>
           </div>
         </div>
       </div>
