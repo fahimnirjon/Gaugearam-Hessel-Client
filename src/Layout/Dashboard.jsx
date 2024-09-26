@@ -3,11 +3,13 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { CiShop } from "react-icons/ci";
 import {
   FaAd,
+  FaBook,
   FaCalendar,
   FaHome,
   FaIdCard,
   FaList,
   FaShoppingCart,
+  FaUsers,
   FaUtensils,
 } from "react-icons/fa";
 import { FaShop } from "react-icons/fa6";
@@ -46,21 +48,15 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink className="gap-3" to="/dashboard/cart">
-                  <AiOutlineShoppingCart />
-                  My Cart
+                <NavLink className="gap-3" to="/dashboard/managebookings">
+                  <FaBook></FaBook>
+                 Manage Bookings
                 </NavLink>
               </li>
               <li>
-                <NavLink className="gap-3" to="/dashboard/review">
-                  <MdReviews />
-                  ADD Review
-                </NavLink>
-              </li>
-              <li>
-                <NavLink className="gap-3" to="/dashboard/bookings">
-                  <TbBrandBooking />
-                  My Booking
+                <NavLink className="gap-3" to="/dashboard/allusers">
+                  <FaUsers></FaUsers>
+                  All Users
                 </NavLink>
               </li>
             </>
