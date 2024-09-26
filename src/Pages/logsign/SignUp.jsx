@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import useAxiosOpen from "../../hooks/useAxiosOpen";
+import img from "../../assets/others/authentication1.png";
 
 const SignUp = () => {
   const axiosOpen = useAxiosOpen();
@@ -28,8 +29,7 @@ const SignUp = () => {
             name: data.name,
             email: data.email,
           };
-          axiosOpen.post("/users", userInfo)
-          .then((res) => {
+          axiosOpen.post("/users", userInfo).then((res) => {
             if (res.data.insertedId) {
               reset();
               Swal.fire({
@@ -53,16 +53,12 @@ const SignUp = () => {
         <title>গাঁওগেরাম হেঁশেল | Sign Up</title>
       </Helmet>
       <div className="hero bg-base-200 min-h-screen">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
+        <div className="hero-content gap-8 lg:gap-20 flex-col lg:flex-row-reverse">
+          <div className="text-center w-1/2 lg:text-left">
+          <h1 className="text-5xl font-bold mb-5">Sign Up!</h1>
+            <img src={img} alt="" />
           </div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <div className="card bg-base-100 w-1/2 max-w-sm shadow-2xl">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -162,7 +158,10 @@ const SignUp = () => {
               </div>
             </form>
             <p className="text-center mb-5 text-yellow-400">
-              Already have an account?<Link className="font-bold underline ml-1" to="/signup">Login Here</Link>{" "}
+              Already have an account?
+              <Link className="font-bold underline ml-1" to="/signup">
+                Login Here
+              </Link>{" "}
             </p>
           </div>
         </div>

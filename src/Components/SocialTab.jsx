@@ -5,14 +5,24 @@ import { FcGoogle } from 'react-icons/fc';
 import { SiLinkedin } from 'react-icons/si';
 import { SocialIcon } from 'react-social-icons';
 import useAuth from '../hooks/useAuth';
+import useAxiosOpen from '../hooks/useAxiosOpen';
 
 const SocialTab = () => {
     const {googleSignIn} = useAuth();
+    const axiosOpen = useAxiosOpen();
 
     const handleGoogle = () =>{
         googleSignIn()
         .then(result=> {
-            console.log(result.user)
+            console.log(result.user);
+            const userInfo = {
+                email: result.user.email,
+                name: result.user?.displayName
+            }
+            axiosOpen.post('/users', userInfo)
+            .then(res=>{
+                console.log(res.data)
+            })
         })
     }
     return (
