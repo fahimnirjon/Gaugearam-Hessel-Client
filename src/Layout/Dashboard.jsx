@@ -17,9 +17,13 @@ import { IoMdContact } from "react-icons/io";
 import { MdMenuBook, MdReviews } from "react-icons/md";
 import { TbBrandBooking } from "react-icons/tb";
 import { NavLink, Outlet } from "react-router-dom";
+import useCart from "../hooks/useCart";
+import IsAdmin from "../hooks/IsAdmin";
 
 const Dashboard = () => {
-  const isAdmin = true;
+  const [cart] = useCart();
+
+  const [isAdmin] = IsAdmin();
 
   return (
     <div className="flex">
