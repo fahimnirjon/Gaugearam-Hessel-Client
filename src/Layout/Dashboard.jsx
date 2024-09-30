@@ -8,7 +8,6 @@ import {
   FaHome,
   FaIdCard,
   FaList,
-  FaShoppingCart,
   FaUsers,
   FaUtensils,
 } from "react-icons/fa";
