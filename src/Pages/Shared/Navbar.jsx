@@ -30,7 +30,9 @@ const Navbar = () => {
       <li className="uppercase">
         <Link to="/menu">our menu</Link>
       </li>
-      <li className="uppercase"><Link>our shop</Link></li>
+      <li className="uppercase">
+        <Link>our shop</Link>
+      </li>
       <li>
         <Link to="/dashboard/cart">
           <button className="btn">
@@ -39,24 +41,24 @@ const Navbar = () => {
           </button>
         </Link>
       </li>
-      {
-        user && isAdmin && <li>
-        <Link to="/dashboard/admin-home">
-          <button className="btn">
-            <div className="badge">DashBoard</div>
-          </button>
-        </Link>
-      </li>
-      }
-      {
-        user && !isAdmin && <li>
-        <Link to="/dashboard/user-home">
-          <button className="btn">
-            <div className="badge">DashBoard</div>
-          </button>
-        </Link>
-      </li>
-      }
+      {user && isAdmin && (
+        <li>
+          <Link to="/dashboard/admin-home">
+            <button className="btn">
+              <div className="badge">DashBoard</div>
+            </button>
+          </Link>
+        </li>
+      )}
+      {user && !isAdmin && (
+        <li>
+          <Link to="/dashboard/user-home">
+            <button className="btn">
+              <div className="badge">DashBoard</div>
+            </button>
+          </Link>
+        </li>
+      )}
       {user ? (
         <>
           <li onClick={handleLogOut} className="btn btn-ghost">
