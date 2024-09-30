@@ -3,45 +3,47 @@ import useCart from "../../../hooks/useCart";
 import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const [cart, refetch] = useCart();
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
 
-const axiosSecure = useAxiosSecure();
+  const axiosSecure = useAxiosSecure();
 
-  const handleDelete = id =>{
+  const handleDelete = (id) => {
     Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
-      }).then((result) => {
-        if (result.isConfirmed) {
-          axiosSecure.delete(`/carts/${id}`)
-          .then(res=> {
-            if(res.data.deletedCount > 0){
-                refetch();
-                Swal.fire({
-                    title: "Deleted!",
-                    text: "Your order has been deleted.",
-                    icon: "success"
-                  });
-            }
-          })
-        }
-      });
-  }
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/carts/${id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your order has been deleted.",
+              icon: "success",
+            });
+          }
+        });
+      }
+    });
+  };
 
   return (
     <div className="">
       <div className="flex gap-10 mb-10">
         <p className="text-3xl">Total Orders: {cart.length}</p>
         <p className="text-3xl">Total Price: ${totalPrice}</p>
-        <button className="btn btn-circle">Pay</button>
+        {cart.length ?  <Link to='/dashboard/payment'>
+          <button className="btn btn-circle">Pay</button>
+        </Link> : <button disabled className="btn btn-circle">Pay</button>}
       </div>
       <div>
         <div className="overflow-x-auto w-full">
@@ -49,9 +51,7 @@ const axiosSecure = useAxiosSecure();
             {/* head */}
             <thead>
               <tr>
-                <th>
-                  #
-                </th>
+                <th>#</th>
                 <th>Item Image</th>
                 <th>Name</th>
                 <th>Price</th>
@@ -60,10 +60,8 @@ const axiosSecure = useAxiosSecure();
             </thead>
             <tbody>
               {cart.map((item, index) => (
-                <tr key={item._id} >
-                  <th>
-                    {index+1}
-                  </th>
+                <tr key={item._id}>
+                  <th>{index + 1}</th>
                   <td>
                     <div className="flex items-center gap-3">
                       <div className="avatar">
@@ -76,12 +74,15 @@ const axiosSecure = useAxiosSecure();
                       </div>
                     </div>
                   </td>
-                  <td>
-                    {item.name}
-                  </td>
+                  <td>{item.name}</td>
                   <td>${item.price}</td>
                   <th>
-                    <button onClick={()=> handleDelete(item._id)} className="btn btn-outline"><FaTrash className="text-red-500"></FaTrash></button>
+                    <button
+                      onClick={() => handleDelete(item._id)}
+                      className="btn btn-outline"
+                    >
+                      <FaTrash className="text-red-500"></FaTrash>
+                    </button>
                   </th>
                 </tr>
               ))}

@@ -34,7 +34,7 @@ const Dashboard = () => {
             <>
               {" "}
               <li>
-                <NavLink className="gap-3" to="/dashboard/adminhome">
+                <NavLink className="gap-3" to="/dashboard/admin-home">
                   <FaHome></FaHome>
                   Admin Home
                 </NavLink>
@@ -68,7 +68,7 @@ const Dashboard = () => {
             <>
               {" "}
               <li>
-                <NavLink className="gap-3" to="/dashboard/userhome">
+                <NavLink className="gap-3" to="/dashboard/user-home">
                   <FaHome></FaHome>
                   User Home
                 </NavLink>
@@ -80,7 +80,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink className="gap-3" to="/dashboard/payment">
+                <NavLink className="gap-3" to="/dashboard/payment-history">
                   <FaIdCard></FaIdCard>
                   Payment History
                 </NavLink>

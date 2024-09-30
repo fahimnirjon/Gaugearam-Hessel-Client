@@ -1,19 +1,19 @@
+import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
+import useAxiosOpen from "./useAxiosOpen";
 
 const useMenu = () =>{
-    const [menu, setMenu] = useState([]);
-    const [loading, setLoading] = useState([]);
+    const axiosOpen = useAxiosOpen();
 
-    useEffect(()=>{
-        fetch('http://localhost:5000/menu')
-        .then(res=> res.json())
-        .then(data=>{
-            setMenu(data);
-            setLoading(false)
-        })
-    }, [])
+    const {data : menu = [], isPending: loading, refetch} = useQuery({
+        queryKey: ['menu'],
+        queryFn: async()=>{
+            const res = await axiosOpen.get('/menu')
+            return res.data;
+        }
+    })
 
-    return [menu, loading]
+    return [menu, loading, refetch]
 }
 
 export default useMenu;
