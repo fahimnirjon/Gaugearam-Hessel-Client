@@ -1,7 +1,6 @@
 import React from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import {
-  FaAd,
   FaBook,
   FaCalendar,
   FaHome,
