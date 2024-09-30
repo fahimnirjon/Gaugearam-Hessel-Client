@@ -51,7 +51,7 @@ const Dashboard = () => {
               <li>
                 <NavLink className="gap-3" to="/dashboard/managebookings">
                   <FaBook></FaBook>
-                 Manage Bookings
+                  Manage Bookings
                 </NavLink>
               </li>
               <li>
