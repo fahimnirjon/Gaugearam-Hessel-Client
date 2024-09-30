@@ -9,9 +9,9 @@ import { useNavigate } from "react-router-dom";
 const CheckOutForm = () => {
   const [error, setError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
-  const [transaction, setTransaction] = useState('');
+  const [transaction, setTransaction] = useState("");
   const stripe = useStripe();
-  const {user} = useAuth();
+  const { user } = useAuth();
   const elements = useElements();
   const axiosSecure = useAxiosSecure();
   const [cart, refetch] = useCart();
@@ -19,10 +19,12 @@ const CheckOutForm = () => {
   const price = cart.reduce((total, item) => total + item.price, 0);
 
   useEffect(() => {
-    if(price > 0){
-        axiosSecure.post("/create-payment-intent", { price: price }).then((res) => {
-            setClientSecret(res.data.clientSecret);
-          }); 
+    if (price > 0) {
+      axiosSecure
+        .post("/create-payment-intent", { price: price })
+        .then((res) => {
+          setClientSecret(res.data.clientSecret);
+        });
     }
   }, [axiosSecure, price]);
 
@@ -51,47 +53,47 @@ const CheckOutForm = () => {
     }
 
     // confirm
-    const {paymentIntent, error: confirmError} = await stripe.confirmCardPayment(clientSecret , {
+    const { paymentIntent, error: confirmError } =
+      await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
-            card: card,
-            billing_details: {
-                email: user?.email || 'anonymous',
-                name: user?.displayName || 'anonymous'
-            }
-        }
-    })
-    if(confirmError){
-        console.log('confirm error', )
-    }
-    else{
-        console.log('payment intent',paymentIntent);
-        if(paymentIntent.status === 'succeeded'){
-            setTransaction(paymentIntent.id)
+          card: card,
+          billing_details: {
+            email: user?.email || "anonymous",
+            name: user?.displayName || "anonymous",
+          },
+        },
+      });
+    if (confirmError) {
+      console.log("confirm error");
+    } else {
+      console.log("payment intent", paymentIntent);
+      if (paymentIntent.status === "succeeded") {
+        setTransaction(paymentIntent.id);
 
-            // save payment in database
+        // save payment in database
 
-            const payment = {
-                email: user.email,
-                price: price,
-                transactionId: paymentIntent.id,
-                date: new Date(),
-                cartIds: cart.map(item=> item._id),
-                menuItemIds: cart.map(item=> item.menuId),
-                status: 'pending'
-            }
-          const res = await  axiosSecure.post('/payments', payment)
-          refetch();
-          if(res.data.paymentResult?.insertedId){
-            Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Your Payment has been done!!',
-                showConfirmButton: false,
-                timer: 2000,
-            })
-            navigate('/dashboard/payment-history')
-          }
+        const payment = {
+          email: user.email,
+          price: price,
+          transactionId: paymentIntent.id,
+          date: new Date(),
+          cartIds: cart.map((item) => item._id),
+          menuItemIds: cart.map((item) => item.menuId),
+          status: "pending",
+        };
+        const res = await axiosSecure.post("/payments", payment);
+        refetch();
+        if (res.data.paymentResult?.insertedId) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your Payment has been done!!",
+            showConfirmButton: false,
+            timer: 2000,
+          });
+          navigate("/dashboard/payment-history");
         }
+      }
     }
   };
   return (
@@ -120,7 +122,11 @@ const CheckOutForm = () => {
         Pay Dollar
       </button>
       <p className="text-red-500">{error}</p>
-      {transaction && <p className="text-green-500">Your Payment was Successful.... Id:{transaction}</p>}
+      {transaction && (
+        <p className="text-green-500">
+          Your Payment was Successful.... Id:{transaction}
+        </p>
+      )}
     </form>
   );
 };
