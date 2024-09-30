@@ -41,9 +41,15 @@ const Cart = () => {
       <div className="flex gap-10 mb-10">
         <p className="text-3xl">Total Orders: {cart.length}</p>
         <p className="text-3xl">Total Price: ${totalPrice}</p>
-        {cart.length ?  <Link to='/dashboard/payment'>
-          <button className="btn btn-circle">Pay</button>
-        </Link> : <button disabled className="btn btn-circle">Pay</button>}
+        {cart.length ? (
+          <Link to="/dashboard/payment">
+            <button className="btn btn-circle">Pay</button>
+          </Link>
+        ) : (
+          <button disabled className="btn btn-circle">
+            Pay
+          </button>
+        )}
       </div>
       <div>
         <div className="overflow-x-auto w-full">
