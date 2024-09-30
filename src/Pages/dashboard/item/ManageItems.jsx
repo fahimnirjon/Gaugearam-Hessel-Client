@@ -2,7 +2,7 @@ import React from "react";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import useMenu from "../../../hooks/useMenu";
 import { FaTrash, FaUpload } from "react-icons/fa6";
-import { MdUpdate } from "react-icons/md";
+import  MdUpdate  from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
