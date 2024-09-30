@@ -12,7 +12,7 @@ const About = () => {
             <p className="mb-5 px-16">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id
+              
             </p>
           </div>
         </div>
