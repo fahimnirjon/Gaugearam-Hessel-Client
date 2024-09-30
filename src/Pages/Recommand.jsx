@@ -5,7 +5,10 @@ import SectionTitle from "../Components/SectionTitle/SectionTitle";
 const Recommand = () => {
   return (
     <div>
-        <SectionTitle heading={'chef recommends'} subHeading={'Should Try'}></SectionTitle>
+      <SectionTitle
+        heading={"chef recommends"}
+        subHeading={"Should Try"}
+      ></SectionTitle>
       <div className="flex gap-10 lg:items-center justify-center">
         <div className="card bg-base-100 w-96 shadow-xl">
           <figure className="px-10 pt-10">
