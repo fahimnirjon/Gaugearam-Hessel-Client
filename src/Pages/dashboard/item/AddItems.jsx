@@ -1,7 +1,6 @@
 import React from "react";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import { useForm } from "react-hook-form";
-import  FaSpoon  from "react-icons/fa6";
 import { FaUtensils } from "react-icons/fa";
 import useAxiosOpen from "../../../hooks/useAxiosOpen";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
