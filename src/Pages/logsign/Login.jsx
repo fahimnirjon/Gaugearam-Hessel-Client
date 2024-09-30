@@ -15,37 +15,35 @@ const Login = () => {
     loadCaptchaEnginge(6);
   }, []);
 
- 
   const [disable, setDisable] = useState(true);
 
   const { signInUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
-  const from = location.state?.from?.pathname || '/'
+  const from = location.state?.from?.pathname || "/";
 
-  const handleLogin = e => {
+  const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
 
-    signInUser(email, password)
-    .then(result => {
+    signInUser(email, password).then((result) => {
       const user = result.user;
-      console.log(user)
+      console.log(user);
       Swal.fire({
         position: "center",
         icon: "success",
         title: "User logged in successfully!",
         showConfirmButton: false,
-        timer: 1500
+        timer: 1500,
       });
-      navigate(from, {replace: true})
+      navigate(from, { replace: true });
     });
   };
 
-  const handleCaptcha = e => {
+  const handleCaptcha = (e) => {
     const user_captcha_value = e.target.value;
     if (validateCaptcha(user_captcha_value) == true) {
       alert("Captcha Matched");
@@ -125,7 +123,10 @@ const Login = () => {
               </div>
             </form>
             <p className="text-center text-yellow-400 mb-5">
-              New here?<Link className="ml-2 underline font-bold" to="/signup">Create an Account!</Link>
+              New here?
+              <Link className="ml-2 underline font-bold" to="/signup">
+                Create an Account!
+              </Link>
             </p>
             <SocialTab></SocialTab>
           </div>
