@@ -13,9 +13,10 @@ import SectionTitle from "../Components/SectionTitle/SectionTitle";
 const Category = () => {
   return (
     <section className="mb-10 mt-10">
-        <SectionTitle heading={'order online'} subHeading={'From 11.00am to 10.00pm'}>
-            
-        </SectionTitle>
+      <SectionTitle
+        heading={"order online"}
+        subHeading={"From 11.00am to 10.00pm"}
+      ></SectionTitle>
       <Swiper
         slidesPerView={3}
         spaceBetween={5}
