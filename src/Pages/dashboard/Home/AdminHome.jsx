@@ -15,7 +15,6 @@ import {
   PieChart,
   Pie,
   Sector,
-  ResponsiveContainer,
   Legend,
 } from "recharts";
 
