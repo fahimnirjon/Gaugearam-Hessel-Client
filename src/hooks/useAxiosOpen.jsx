@@ -1,11 +1,11 @@
-import axios from 'axios';
+import axios from "axios";
 
 const axiosOpen = axios.create({
-    baseURL: 'https://restaurant-server-two.vercel.app'
-})
+  baseURL: "https://restaurant-server-two.vercel.app",
+});
 
 const useAxiosOpen = () => {
-    return axiosOpen;
+  return axiosOpen;
 };
 
 export default useAxiosOpen;
