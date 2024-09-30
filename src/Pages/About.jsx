@@ -10,7 +10,7 @@ const About = () => {
           <div className="lg:w-[1000px] md:w-[600px] bg-white m-20 rounded-2xl p-5">
             <h1 className="mb-5 text-5xl font-bold ">Gaogeram Hessel</h1>
             <p className="mb-5 px-16">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
+              Provident cupiditate voluptatem et in. Quaerat fugiat ut
               
               
             </p>
