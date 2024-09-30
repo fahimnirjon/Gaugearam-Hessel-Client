@@ -11,7 +11,7 @@ const About = () => {
             <h1 className="mb-5 text-5xl font-bold ">Gaogeram Hessel</h1>
             <p className="mb-5 px-16">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
+              excepturi exercitationem quasi. In deleniti eaque aut
               
             </p>
           </div>
