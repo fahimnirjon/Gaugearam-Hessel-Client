@@ -56,7 +56,7 @@ const SignUp = () => {
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content gap-8 lg:gap-20 flex-col lg:flex-row-reverse">
           <div className="text-center w-1/2 lg:text-left">
-          <h1 className="text-5xl font-bold mb-5">Sign Up!</h1>
+            <h1 className="text-5xl font-bold mb-5">Sign Up!</h1>
             <img src={img} alt="" />
           </div>
           <div className="card bg-base-100 w-1/2 max-w-sm shadow-2xl">
