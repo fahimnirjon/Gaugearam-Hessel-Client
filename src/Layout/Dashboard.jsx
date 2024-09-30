@@ -1,6 +1,6 @@
 import React from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { CiShop } from "react-icons/ci";
+import CiShop  from "react-icons/ci";
 import {
   FaAd,
   FaBook,
