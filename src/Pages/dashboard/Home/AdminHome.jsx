@@ -85,9 +85,9 @@ const AdminHome = () => {
       </text>
     );
   };
-  const pieChartData= chartData.map(data=> {
-    return {name: data.category, value: data.revenue}
-  })
+  const pieChartData = chartData.map((data) => {
+    return { name: data.category, value: data.revenue };
+  });
 
   return (
     <div className="">
