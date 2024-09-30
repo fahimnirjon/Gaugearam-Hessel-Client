@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const AllUsers = () => {
   const axiosSecure = useAxiosSecure();
-  const { data: users = [] , refetch} = useQuery({
+  const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await axiosSecure.get("/users");
@@ -14,27 +14,23 @@ const AllUsers = () => {
     },
   });
 
-  const handleMakeAdmin = user =>{
-    axiosSecure.patch(`/users/admin/${user._id}`)
-    .then(res=> {
-        console.log(res.data)
-        if(res.data.modifiedCount){
-            refetch();
-            Swal.fire(
-                
-                {
-                    position: 'center',
-                    icon: 'success',
-                    title: `${user.name} is an Admin now!`,
-                    showCOnfirmButton: false,
-                    timer: 2000
-                }
-            );
-        }
-    })
-  }
+  const handleMakeAdmin = (user) => {
+    axiosSecure.patch(`/users/admin/${user._id}`).then((res) => {
+      console.log(res.data);
+      if (res.data.modifiedCount) {
+        refetch();
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: `${user.name} is an Admin now!`,
+          showCOnfirmButton: false,
+          timer: 2000,
+        });
+      }
+    });
+  };
 
-  const handleDelete = user => {
+  const handleDelete = (user) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -83,12 +79,16 @@ const AllUsers = () => {
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>
-                 { user.role === 'admin' ? 'Admin' : <button
-                    onClick={() => handleMakeAdmin(user)}
-                    className="btn btn-outline bg-yellow-400"
-                  >
-                    <FaUser className="text-white text-lg"></FaUser>
-                  </button>}
+                  {user.role === "admin" ? (
+                    "Admin"
+                  ) : (
+                    <button
+                      onClick={() => handleMakeAdmin(user)}
+                      className="btn btn-outline bg-yellow-400"
+                    >
+                      <FaUser className="text-white text-lg"></FaUser>
+                    </button>
+                  )}
                 </td>
                 <td>
                   <button
