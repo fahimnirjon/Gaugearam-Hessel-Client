@@ -3,7 +3,6 @@ import { BsTwitterX } from 'react-icons/bs';
 import { FaGithub } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { SiLinkedin } from 'react-icons/si';
-import  SocialIcon  from 'react-social-icons';
 import useAuth from '../hooks/useAuth';
 import useAxiosOpen from '../hooks/useAxiosOpen';
 import { useNavigate } from 'react-router-dom';
