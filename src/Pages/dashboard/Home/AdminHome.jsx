@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React,  PureComponent  from "react";
 import useAuth from "../../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
