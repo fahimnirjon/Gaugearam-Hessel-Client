@@ -1,5 +1,5 @@
 import React from "react";
-import ico from '../../assets/icon/chef.png'
+import ico from "../../assets/icon/chef.png";
 
 const Footer = () => {
   return (
@@ -8,7 +8,7 @@ const Footer = () => {
         <aside>
           <img className="w-[50px] h-[50px]" src={ico} alt="" />
           <p className="mt-2">
-          গাঁওগেরাম হেঁশেল Ltd.
+            গাঁওগেরাম হেঁশেল Ltd.
             <br />
             Providing Delightful Cuisine since 2022
           </p>
@@ -53,13 +53,13 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-center bg-neutral p-4 text-white">
-          <div>
-            <p>
-              Copyright © {new Date().getFullYear()} - All right reserved by
-              গাঁওগেরাম হেঁশেল
-            </p>
-          </div>
+        <div>
+          <p>
+            Copyright © {new Date().getFullYear()} - All right reserved by
+            গাঁওগেরাম হেঁশেল
+          </p>
         </div>
+      </div>
     </footer>
   );
 };
